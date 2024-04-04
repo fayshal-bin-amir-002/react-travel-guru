@@ -25,7 +25,7 @@ const Home = () => {
 
     return (
         <div className="hero min-h-screen text-white" style={{ backgroundImage: `url(${bgImg})` }}>
-            <div className="container mx-auto">
+            <div className="container auto">
                 <NavBar></NavBar>
             </div>
             <div className="hero-overlay bg-opacity-70"></div>
