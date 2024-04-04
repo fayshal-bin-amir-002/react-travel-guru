@@ -8,6 +8,8 @@ import img4 from "../assets/Sreemongol.png"
 import img5 from "../assets/sundorbon.png"
 import img6 from "../assets/Sajek.png"
 import { Link } from "react-router-dom"
+import { FaArrowRightLong } from "react-icons/fa6";
+import NavBar from "../components/NavBar"
 
 
 const Home = () => {
@@ -23,10 +25,13 @@ const Home = () => {
 
     return (
         <div className="hero min-h-screen text-white" style={{ backgroundImage: `url(${bgImg})` }}>
+            <div className="container mx-auto">
+                <NavBar></NavBar>
+            </div>
             <div className="hero-overlay bg-opacity-70"></div>
-            <div className="hero-content flex-col lg:flex-row-reverse">
-                <div className="lg:w-1/2">
-                    <div ref={sliderRef} className="keen-slider">
+            <div className="hero-content flex-col lg:flex-row-reverse pt-20">
+                <div className="w-full lg:w-1/2">
+                    <div ref={sliderRef} className="keen-slider w-full">
                         <div className="keen-slider__slide number-slide1"><img src={img1} alt="" /></div>
                         <div className="keen-slider__slide number-slide2"><img src={img2} alt="" /></div>
                         <div className="keen-slider__slide number-slide3"><img src={img3} alt="" /></div>
@@ -39,7 +44,7 @@ const Home = () => {
                     <h1 className="text-4xl lg:text-8xl font-bold">Cox&apos;s bazar</h1>
                     <p className="py-6">Cox&apos;s Bazar is a city, fishing port, tourism centre and district headquarters in southeastern Bangladesh. It is famous mostly for its long natural sandy beach, and it ...</p>
                     <Link>
-                        <button className="btn bg-[#F9A51A]">Booking</button>
+                        <button className="btn bg-[#F9A51A]">Booking <FaArrowRightLong /></button>
                     </Link>
                 </div>
             </div>

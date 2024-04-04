@@ -11,7 +11,7 @@ const NavBar = () => {
 
     return (
         <div className=" container mx-auto">
-            <div className="navbar fixed top-0 z-10 py-5 lg:py-10 text-white container mx-auto">
+            <div className="navbar fixed top-0 z-10 py-5 lg:py-10 container mx-auto">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -21,7 +21,7 @@ const NavBar = () => {
                             {navLinks}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-2xl lg:text-4xl">Travel <span className=" text-accent">Guru</span></a>
+                    <Link to="/" className="btn btn-ghost text-2xl lg:text-4xl">Travel <span className=" text-accent">Guru</span></Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <label className="input input-bordered text-white bg-transparent border-white outline-white focus:outline-none  flex items-center gap-2">
@@ -33,7 +33,7 @@ const NavBar = () => {
                     <ul className="hidden lg:flex menu menu-horizontal pr-6 text-base font-medium">
                         {navLinks}
                     </ul>
-                    <Link className="btn bg-[#F9A51A] border-none">Login</Link>
+                    <Link to="/login" className="btn bg-[#F9A51A] border-none">Login</Link>
                 </div>
             </div>
         </div>
