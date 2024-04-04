@@ -43,7 +43,7 @@ const Home = () => {
                 <div>
                     <h1 className="text-4xl lg:text-8xl font-bold">Cox&apos;s bazar</h1>
                     <p className="py-6">Cox&apos;s Bazar is a city, fishing port, tourism centre and district headquarters in southeastern Bangladesh. It is famous mostly for its long natural sandy beach, and it ...</p>
-                    <Link>
+                    <Link to="/booking">
                         <button className="btn bg-[#F9A51A]">Booking <FaArrowRightLong /></button>
                     </Link>
                 </div>
