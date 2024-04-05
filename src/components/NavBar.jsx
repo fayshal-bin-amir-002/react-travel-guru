@@ -1,6 +1,11 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../AuthProvider/AuthProvider";
+import { toast } from 'react-toastify';
 
 const NavBar = () => {
+
+    const { user, userSignOut } = useContext(AuthContext);
 
     const navLinks = <>
         <li><NavLink to="/news">News</NavLink></li>
@@ -8,6 +13,16 @@ const NavBar = () => {
         <li><NavLink to="/blog">Blog</NavLink></li>
         <li><NavLink to="/contact">Contact</NavLink></li>
     </>
+
+    const handleSignOut = () => {
+        userSignOut()
+            .then(() => {
+                toast.success('User log out successfully');
+            })
+            .catch((error) => {
+                toast.error(error.message);
+            })
+    }
 
     return (
         <div className=" container mx-auto">
@@ -33,10 +48,30 @@ const NavBar = () => {
                     <ul className="hidden lg:flex menu menu-horizontal pr-6 text-base font-medium">
                         {navLinks}
                     </ul>
-                    <Link to="/login" className="btn bg-[#F9A51A] border-none">Login</Link>
+                    {
+                        user ?
+                            <div className="dropdown dropdown-end text-black">
+                                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                    <div className="w-10 rounded-full">
+                                        <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                                    </div>
+                                </div>
+                                <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box min-w-52">
+                                    <li><small>{user.email}</small></li>
+                                    <li>
+                                        <a className="justify-between">
+                                            Profile
+                                        </a>
+                                    </li>
+                                    <li><a>Settings</a></li>
+                                    <li><a onClick={handleSignOut}>Logout</a></li>
+                                </ul>
+                            </div> :
+                            <Link to="/login" className="btn bg-[#F9A51A] border-none">Login</Link>
+                    }
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

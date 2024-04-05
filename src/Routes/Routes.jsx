@@ -4,6 +4,7 @@ import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Booking from "../pages/Booking";
+import PrivetRoute from "./PrivetRoute";
 
 const router = createBrowserRouter([
   {
@@ -24,7 +25,9 @@ const router = createBrowserRouter([
       },
       {
         path: "/booking",
-        element: <Booking></Booking>
+        element: <PrivetRoute>
+          <Booking></Booking>
+        </PrivetRoute>
       }
     ]
   },
